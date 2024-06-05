@@ -1,5 +1,3 @@
-[Managed ID Version is here](https://github.com/07JP27/openai-client/tree/managed-id)
-
 # Simple ChatGPT client
 It is a Python application that serves as the frontend for Azure Open AI's ChatGPT.
 It is assumed to be deployed on Azure App Service.
