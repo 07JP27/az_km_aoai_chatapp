@@ -12,7 +12,7 @@ Deploy Python Stack Web Apps
 # 2.Deploy this application
 Web Apps > Deployment Center > Setting
 - Source : External Git
-- Repository : https://github.com/07JP27/openai-client
+- Repository : https://github.com/07JP27/az_km_aoai_chatapp/
 - Branch : main
 - Repository Type : Public
 
@@ -36,7 +36,7 @@ Web Apps > Configuration > Application settings
 
 - OPENAI_API_ENDPOINT : Your Azure Open AI API endpoint URL
 - OPENAI_API_KEY : Your Azure Open AI API key
-- OPENAI_API_VERSION : API Vearsion (2023-03-15-preview)
+- OPENAI_API_VERSION : API Vearsion (2024-02-01)
 - OPENAI_ENGINE : The model name you deployed
 
 ![image](https://github.com/07JP27/openai-client/assets/11060273/a34ffd2d-f044-4202-be09-fe04ad6f7c79)
