@@ -16,7 +16,7 @@ st.sidebar.markdown("Azure OpenAIのChatGPT APIを使ったWebアプリケーシ
 deployment = os.getenv('OPENAI_DPLOYMENT')
 apikey = os.getenv('OPENAI_API_KEY')
 base = os.getenv('OPENAI_API_ENDPOINT')
-api_version = os.getenv('OPENAI_API_VERSION')#"2023-03-15-preview"
+api_version = os.getenv('OPENAI_API_VERSION')# "2024-10-21"
 
 st.sidebar.text("Endpoint："+base)
 st.sidebar.text("API Ver："+api_version)
@@ -112,7 +112,7 @@ if st.sidebar.button("Clear Chat"):
 # サイドバーでパラメータを設定する
 st.sidebar.markdown("ChatGPTのパラメータ設定")
 Temperature_temp = st.sidebar.slider("Temperature(温度)", 0.0, 1.0, 0.7, 0.01)
-MaxTokens_temp = st.sidebar.slider("Max_Tokens(最大応答トークン数)", 0, 2048, 500, 1)
+MaxTokens_temp = st.sidebar.slider("Max_Tokens(最大応答トークン数)", 0, 16384, 500, 1)
 top_p_temp = st.sidebar.slider("Top_p(上位P)", 0.0, 1.0, 0.9, 0.01)
 
 # Systemの役割を定義する。入力ボックスで指定する
