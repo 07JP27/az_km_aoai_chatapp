@@ -13,15 +13,14 @@ st.sidebar.header("ChatGPT Demo")
 st.sidebar.markdown("Azure OpenAIのChatGPT APIを使ったWebアプリケーションのサンプル画面です。")
 
 #Azure OpenAIへの接続情報を設定する。※適宜編集してください
-deployment = os.getenv('OPENAI_DEPLOYMENT')
-apikey = os.getenv('OPENAI_API_KEY')
-base = os.getenv('OPENAI_API_ENDPOINT')
-api_version = os.getenv('OPENAI_API_VERSION')# "2024-10-21"
+deployment = os.getenv('OPENAI_DEPLOYMENT', '')
+apikey = os.getenv('OPENAI_API_KEY', '')
+base = os.getenv('OPENAI_API_ENDPOINT', '')
+api_version = os.getenv('OPENAI_API_VERSION', '')  # "2024-10-21"
 
-st.sidebar.text("Endpoint："+base)
-st.sidebar.text("API Ver："+api_version)
-st.sidebar.text("Deployment："+deployment)
-
+st.sidebar.text(f"Endpoint: {base}")
+st.sidebar.text(f"API Ver: {api_version}")
+st.sidebar.text(f"Deployment: {deployment}")
 
 client = AzureOpenAI(
   azure_endpoint = base, 
