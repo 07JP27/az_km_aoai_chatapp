@@ -1,6 +1,7 @@
 import os
 import streamlit as st
 from openai import AzureOpenAI
+from azure.identity import DefaultAzureCredential,get_bearer_token_provider
 
 #ページタイトルとアイコンを設定する。
 st.set_page_config(page_title="Custom ChatGPT", page_icon="💬",layout="wide")
@@ -14,7 +15,6 @@ st.sidebar.markdown("Azure OpenAIのChatGPT APIを使ったWebアプリケーシ
 
 #Azure OpenAIへの接続情報を設定する。※適宜編集してください
 deployment = os.getenv('OPENAI_DEPLOYMENT', '')
-apikey = os.getenv('OPENAI_API_KEY', '')
 base = os.getenv('OPENAI_API_ENDPOINT', '')
 api_version = os.getenv('OPENAI_API_VERSION', '')  # "2024-10-21"
 
@@ -22,9 +22,15 @@ st.sidebar.text(f"Endpoint: {base}")
 st.sidebar.text(f"API Ver: {api_version}")
 st.sidebar.text(f"Deployment: {deployment}")
 
+#Managed IDでのトークン取得
+token_provider = get_bearer_token_provider(  
+    DefaultAzureCredential(),  
+    "https://cognitiveservices.azure.com/.default"  
+)  
+
 client = AzureOpenAI(
   azure_endpoint = base, 
-  api_key=apikey,  
+  azure_ad_token_provider=token_provider,
   api_version=api_version
 )
 
